@@ -21,15 +21,13 @@ const App = () => {
   return (
     <>
       <CssBaseline />
-      <div className={classes.root}>
         {/* <AssetProvider> */}
-          <Router>
-            <Navigation classes={classes} />
-            <Route exact path="/" render={() => <PageAllCats classes={classes} />} />
-            <Route exact path="/upload" render={() => <PageUploadCat classes={classes} />} />
-          </Router>
+        <Router>
+          <Navigation classes={classes} />
+          <Route exact path="/" render={() => <PageAllCats classes={classes} />} />
+          <Route exact path="/upload" render={() => <PageUploadCat classes={classes} />} />
+        </Router>
         {/* </AssetProvider> */}
-      </div>
     </>
   )
 };

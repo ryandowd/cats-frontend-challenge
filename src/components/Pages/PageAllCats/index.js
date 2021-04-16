@@ -52,14 +52,12 @@ const PageAllCats = ({ classes }) => {
         <main className={classes.content}>
             <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
-                <Grid container  spacing={3} direction="row">
-                    <Grid item xs={12} md={6}>
-                        {allCats.length ? (
-                            allCats.map(cat => <CatCard classes={classes} cat={cat} />)
-                        ):(
-                            <h1>Please upload some cats</h1>
-                        )}
-                    </Grid>
+                <Grid container spacing={3} direction="row">
+                    {allCats.length ? (
+                        allCats.map(cat => <CatCard key={cat.id} classes={classes} cat={cat} />)
+                    ):(
+                        <h1>Please upload some cats</h1>
+                    )}
                 </Grid>
             </Container>
         </main>

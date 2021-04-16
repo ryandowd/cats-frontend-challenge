@@ -53,21 +53,17 @@ const PageUploadCat = ({ classes }) => {
         <main className={classes.content}>
             <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
-                <Grid container  spacing={3} direction="row">
-                    <Grid item xs={12} md={6}>
-                        <Paper className={classes.paper}>
-                            <DropzoneArea
-                                onChange={files => dropzoneOnChange(files)}
-                                filesLimit={1}
-                                acceptedFiles={['image/jpeg', 'image/png']}
-                                maxFileSize={5000000}
-                            />
-                            <Button variant="contained" color="primary">
-                                Save Cat Photo
-                            </Button>
-                        </Paper>
-                    </Grid>
-                </Grid>
+                <Paper className={classes.paper}>
+                    <DropzoneArea
+                        onChange={files => dropzoneOnChange(files)}
+                        filesLimit={1}
+                        acceptedFiles={['image/jpeg', 'image/png']}
+                        maxFileSize={5000000}
+                    />
+                    <Button variant="contained" color="primary">
+                        Save Cat Photo
+                    </Button>
+                </Paper>
             </Container>
         </main>
     )
