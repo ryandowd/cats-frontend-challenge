@@ -1,0 +1,24 @@
+.Nav {
+    margin: 50px 0 20px;
+}
+
+.Nav__list {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.Nav__list a {
+    text-decoration: none;
+    margin: 20px;
+    padding: 20px 40px;
+    font-size: 20px;
+    color: #3f51b5;
+    border: 3px solid transparent;
+}
+
+.Nav__list a.active {
+    border: 3px solid #3f51b5;
+}

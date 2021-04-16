@@ -1,17 +1,15 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
+import { NavLink } from 'react-router-dom'
 
-const Navigation = ({ classes }) => {    
-    const isAllCats = window.location.pathname === '/' ? 'contained' : undefined;
-    const isUploadCat = window.location.pathname === '/upload' ? 'contained' : undefined;
+import "./Navigation.css";
+
+const Navigation = () => {
     return (
-        <nav className={classes.nav}>
-            <Button variant={isAllCats} color="primary" href="/">
-                All Cats
-            </Button>
-            <Button variant={isUploadCat} color="primary" href="/upload">
-                Upload Cat
-            </Button>
+        <nav className="Nav">
+            <ul className="Nav__list">
+                <li><NavLink exact activeClassName="active" to='/' >All Cats</NavLink></li>
+                <li><NavLink activeClassName="active" to='/upload' >Upload Cats</NavLink></li>
+            </ul>
         </nav>
     )
 }
