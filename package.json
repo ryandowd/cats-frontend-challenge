@@ -1,0 +1,9 @@
+{
+  "name": "cats-frontend-challenge",
+  "version": "1.0.0",
+  "description": "A front-end app to integrate with the Cats API for a front-end code challenge",
+  "main": "index.js",
+  "repository": "https://github.com/ryandowd/cats-frontend-challenge.git",
+  "author": "Ryan Dowd <ryan.dowd84@gmail.com>",
+  "license": "MIT"
+}
