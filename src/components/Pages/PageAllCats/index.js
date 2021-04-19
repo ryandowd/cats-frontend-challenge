@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-
 import CatCard from '../../UI/CatCard';
+import useCatsAPI from '../../../hooks/useCatsAPI';
 import { 
     Container, 
     Grid
@@ -11,23 +10,15 @@ import LoadingSpinner from '../../UI/LoadingSpinner';
 const PageAllCats = ({ classes }) => {
     const [allCats, setAllCats] = useState([]);
 
-    const fetchAllCats = async () => {
-        const url = 'https://api.thecatapi.com/v1/images'
-        const response = await axios({
-            method: 'GET',
-            url: url,
-            headers: {
-                'x-api-key': '124f173f-1dd6-4a6f-8164-b8f27fdd3a00'
-            },
-            params: {
-                limit: 50
-            }
-        });
-        
-        if (response.data.length) {
+    const fetchAllCats = () => {
+        useCatsAPI(
+            'images',
+            'GET',
+            { limit: 50 }
+        ).then(response => {
             setAllCats(response.data);
-        }
-    }   
+        });
+    }
 
     useEffect(() => {
         fetchAllCats();

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import useCatsAPI from '../../../hooks/useCatsAPI';
 
 import { 
     Container, 
@@ -22,8 +22,7 @@ const PageUploadCat = ({ classes }) => {
         }
     }
 
-    const uploadImage = async () => {
-
+    const handleUploadImage = async () => {
         if (!file) {
             setShowError(true)
         } else {
@@ -31,19 +30,17 @@ const PageUploadCat = ({ classes }) => {
             const formData = new FormData();
             formData.append('file', file);
             formData.append('sub_id', 'Ryan');
-            
-            const response = await axios({
-                method: 'POST',
-                url: 'https://api.thecatapi.com/v1/images/upload',
-                data: formData,
-                headers: {
-                    'x-api-key': '124f173f-1dd6-4a6f-8164-b8f27fdd3a00'
+
+            useCatsAPI(
+                'images/upload',
+                'POST',
+                null,
+                formData
+            ).then(response => {
+                if (response.status === 201) {
+                    window.location = '/';
                 }
             });
-    
-            if (response.status === 201) {
-                window.location = '/';
-            }
         }
 
     }
@@ -73,7 +70,7 @@ const PageUploadCat = ({ classes }) => {
                                 variant="contained"
                                 color="primary"
                                 className={classes.button}
-                                onClick={uploadImage}
+                                onClick={handleUploadImage}
                                 size="large"
                                 startIcon={<CloudUploadIcon />}
                             >

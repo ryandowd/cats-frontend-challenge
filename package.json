@@ -51,5 +51,11 @@
     "webpack": "^5.21.2",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
-  }
+  },
+  "dependencies": {
+    "babel-preset-stage-0": "^6.24.1"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
 }
